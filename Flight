@@ -18,7 +18,7 @@ public class Flight
      * @param depCity       This is the departure city
      * @param arrCity       This the arrival city
      * @param depTime       This is the departure time
-     * @param
+     * @param arrTime       This is the arrival time
      */
     
     
