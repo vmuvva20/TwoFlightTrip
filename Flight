@@ -1,9 +1,8 @@
-
 /**
  * Write a description of class Flight here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @Vedha Muvva, Suzy Schwabl, Carolyn Glasener
+ * @version (2019-09-17)
  */
 public class Flight
 {
@@ -21,15 +20,23 @@ public class Flight
      * @param arrTime       This is the arrival time
      */
     
+    public Flight(String flightNum, String depCity, String arrCity, String depTime, String arrTime)
+    {
+        this.flightNum = flightNum;
+        this.depCity = depCity;
+        this.arrCity = arrCity;
+        this.depTime = depTime;
+        this.arrTime = arrTime;
+    }
     
-}
-   /**
+    /**
      * @return  number of flight
      */
     public String getFlightNum()
     {
         return flightNum;
     }
+    
     /**
      * @return  departure city
      */
@@ -37,6 +44,7 @@ public class Flight
     {
         return depCity;
     }
+    
     /**
      * @return  arrival city
      */
@@ -44,3 +52,31 @@ public class Flight
     {
         return arrCity;
     }
+    
+    /**
+     * @return      the departure time
+     */
+    public String getDepTime()
+    {
+        return depTime;
+    }
+    
+    /**
+     * @return      the arrival time
+     */
+    public String getArrTime()
+    {
+       return arrTime;
+    }
+    
+    /**
+     * Phrase the string in a more readable format
+     *
+     * @return      the departure time
+     */
+    public String toString()
+    {
+        return ("flight no: " + flightNum + " from " + depCity + " at " + depTime + "/n" + "arrive in " + arrCity + " at " + arrTime + ".");
+    }
+    
+}
