@@ -1,0 +1,24 @@
+
+/**
+ * Write a description of class Flight here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+public class Flight
+{
+    public String flightNum;
+    public String depCity;
+    public String arrCity;
+    public String depTime;
+    public String arrTime;
+    
+    /**
+     * @param flightNum     This is the flight number
+     * @param depCity       This is the departure city
+     * @param arrCity       This the arrival city
+     
+     */
+    
+    
+}
