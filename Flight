@@ -17,8 +17,30 @@ public class Flight
      * @param flightNum     This is the flight number
      * @param depCity       This is the departure city
      * @param arrCity       This the arrival city
-     
+     * @param depTime       This is the departure time
+     * @param
      */
     
     
 }
+   /**
+     * @return  number of flight
+     */
+    public String getFlightNum()
+    {
+        return flightNum;
+    }
+    /**
+     * @return  departure city
+     */
+    public String getDepCity()
+    {
+        return depCity;
+    }
+    /**
+     * @return  arrival city
+     */
+    public String getArrCity()
+    {
+        return arrCity;
+    }
