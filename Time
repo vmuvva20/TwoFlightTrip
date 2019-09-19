@@ -1,0 +1,37 @@
+public class Time
+{
+    private int hours;
+    private int minutes;
+    private int totalSeconds;
+    
+    public Time(int hours, int minutes)
+    {
+        this.hours = hours;
+        this.minutes = minutes;
+        settotalSeconds(hours, minutes);
+    }
+    public int settotalSeconds(int hours, int minutes)
+    {
+        totalSeconds = (3600 * hours) + (60 * minutes);
+        return totalSeconds;
+    }
+    public Time (int totalSeconds) //returns the new time
+    {
+        hours = totalSeconds/3600;
+        minutes = totalSeconds/60;
+    }
+    Time elapsedSeconds(Time other)
+    {
+        int elapsedSeconds = this.gettotalSeconds - other.gettotalSeconds;
+        return new Time(elapsedSeconds);
+    }
+    public int gethours()
+    {
+        return hours;
+    }
+    public int getminutes()
+    {
+        return minutes;
+    }
+    //this.totalSeconds = this.getTotalSeconds() + other.getTotalSeconds(); 
+}
