@@ -1,0 +1,17 @@
+NOTES
+flight 
+  - needs: get info
+  - from time: work with time 
+  - print a time
+  - toString method
+  - get an ellapsed time (from time method)
+
+two flight trip
+  - works with two flights
+  - print a flight
+  - get and print the layover (f1 arrival to f2 departure, ellapse the time)
+  - toString method
+
+time
+  - ???
+  - everything is on fire
