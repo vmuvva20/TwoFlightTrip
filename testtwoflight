@@ -1,0 +1,6 @@
+Flight f1 = new Flight 
+(“1417”, “CLE”, new Time (10, 40), “DEN”, new Time (12, 10));
+Flight f2 = new Flight 
+(“2257”, “DEN”, new Time (15, 15), “SJO”, new Time (16, 55));
+TwoFlightTrip myTrip = new TwoFlightTrip (f1, f2);
+System.out.println (myTrip);
