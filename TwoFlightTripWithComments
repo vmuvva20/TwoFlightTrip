@@ -1,0 +1,45 @@
+
+/**
+ * Write a description of class TwoFlightTrip here.
+ *
+ * @author (Suzy Schwabl, Carolyn Glasener, Vedha Muvva)
+ * @version (2019-09-23)
+ */
+public class TwoFlightTrip
+{
+    private Time layover;
+    private Flight f1;
+    private Flight f2;
+    
+    /**
+     * @param Flight f1 = This is flight 1 times
+     * @param layover =   This is the layover time
+     * @param Flight f2 = This is flight 2 times
+     */
+    public TwoFlightTrip(Flight f1, Time layover, Flight f2)
+    {
+        this.f1 = f1;
+        this.f2 = f2;
+        this.layover = layover;
+    }
+    /**
+     * return   The times of the first flight + the layover + the times of the second flights
+     */
+    public String toString()
+    {
+        return f1 + "\nlayover " + layover + "\n" + f2;
+    }
+    /**
+     * return   Prints all flight and layover times
+     */
+    public static void main(String[] args)
+    {
+        Flight f1 = new Flight ("1417", "CLE", new Time (10, 40), "DEN", new Time (12, 10));
+        Flight f2 = new Flight ("2257", "DEN", new Time (15, 15), "SJO", new Time (16, 55));
+        Time layover = f1.getArrTime().elapsedSeconds(f2.getDepTime());
+        TwoFlightTrip myTrip = new TwoFlightTrip(f1, layover, f2);
+        System.out.println(myTrip);
+        System.out.println(layover);
+    }
+    
+}
