@@ -1,0 +1,259 @@
+FLIGHT CLASS
+/**
+ * Flight constructs and prints out two seperate flights
+ *
+ * @Carolyn, Suzy, Vedha
+ * @19/16/9
+ */
+public class Flight
+{
+   private String flightNum;
+   private String departurePlace;
+   public Time departureTime;
+   private String arrivalPlace;
+   public Time arrivalTime;
+   public Time flightTime;
+   /** the constructor for the Flight class
+    * @param flightNum the flight number
+    * @param departurePlace the place the plane departs from
+    * @param arrivalPlace the place the plan arrives at 
+    * @param departureTime the time the plane departs
+    * @param arrivalTime the time the plane arrives
+    * @param flightTime the amount of time elapsed between the departure and arrival
+    */
+   public Flight(String flightNum, String departurePlace, Time departureTime, String arrivalPlace, Time arrivalTime)
+   {
+       this.flightNum = flightNum;
+       this.departurePlace = departurePlace;
+       this.arrivalPlace = arrivalPlace;
+       this.departureTime = departureTime;
+       this.arrivalTime = arrivalTime; 
+       flightTime = departureTime.elapsedSeconds(arrivalTime);
+   }
+   /** gets the flight number
+    * @param flightNum the number of the flight
+    * @return the flight number of the flight
+    */
+   public String getFlightNum()
+   {
+       return flightNum;
+   }
+   /** gets the place the plane departs from
+    * @param DeparturePlace the place the plane departs from
+    * @return the place the plane departs from
+    */
+   public String getDeparturePlace()
+   {
+       return departurePlace;
+   }
+   /** gets the time the plane departs
+    * @param departureTime the time the plane departs 
+    * @return the departure time
+    */
+   public Time getDepartureTime()
+   {
+       return departureTime;
+   }
+   /** gets the place the plane arrives at
+    * @param arrivalPlace the place the plane arrives at
+    * @return the place the plane arrives at
+    */
+   public String getArrivalPlace()
+   {
+       return arrivalPlace;
+   }
+   /** gets the time the plane arrives
+    * @param arrivalTime the place the plane arrives
+    * @return the time the plane arrives 
+    */
+   public Time getArrivalTime()
+   {
+       return arrivalTime;
+   }
+   /** makes a nice string out of all the information
+    * @return a string with the flight number, departure place, departure time, arrival place, arrival time. and the total length of the flight. 
+    */
+   public String toString() 
+   {
+       return "Flight " + flightNum + " Depart " + departurePlace + " " + departureTime + " Arrive " + arrivalPlace + " " + arrivalTime + 
+       " Flight Time: " + flightTime;
+   }
+   /** the test code for TwoFlighTrip and Flight
+    * @return (i don't know if this is a return) the strings of flight 1 and flight 2
+    */
+   public static void main(String[] args)
+   {
+        Flight f1 = new Flight("1417", "CLE", new Time(10, 40), "DEN", new Time(12, 10));
+        Flight f2 = new Flight("1417", "DEN", new Time(15, 15), "SJO", new Time(16, 55));
+        System.out.println(f1);
+        System.out.println(f2);
+   }
+}
+
+TWO FLIGHT CLASS
+
+/**
+ * TwoFlightTrip prints out two flights and finds the layover time. 
+ *
+ * @Carolyn Glasener, Suzy Schwabl, Vedha Muvva (similar but different code)
+ * @19/23/9
+ */
+
+public class TwoFlightTrip
+{
+   private Flight f1;
+   private Flight f2;
+   private Time layoverTime;
+   
+   /** constructor for the class TwoFlightTrip
+    * @param f1 the first flight of two fights
+    * @param f2 the second flight of two flights
+    * @param layoverTime the time inbetween the arrival of flight one and the departure of flight two
+    */
+   public TwoFlightTrip(Flight f1, Flight f2)
+   {
+       this.f1 = f1;
+       this.f2 = f2;
+       layoverTime = f1.getArrivalTime().elapsedSeconds(f2.getDepartureTime());
+   }
+   /** gets the layover time
+    * @param layoverTime the time inbetween the arrival of flight one and the departure of flight two
+    * @return the time inbetween the arrival of flight one and the departure of flight two 
+    */
+   public Time getLayoverTime()
+   {
+       return layoverTime;
+   }
+   /** makes a string from the flights and layover times
+    * @returns a string of flight one, the layover time, and flight two
+    */
+   public String toString()
+   {
+       return f1 + "\nLayover: " + layoverTime + "\n" + f2;
+   }
+   /** the test code for TwoFlightTrip
+    * return printed versions of f1, f2, and the layover
+    */
+   public static void main(String [] args)
+   {
+       Flight f1 = new Flight("1417", "CLE", new Time(10, 40), "DEN", new Time(12, 10));
+       Flight f2 = new Flight("1234", "DEN", new Time(15, 15), "SJO", new Time(16, 55));
+       TwoFlightTrip myTrip = new TwoFlightTrip(f1,f2);
+       System.out.println(myTrip);
+   }
+   
+}
+
+
+TIME CLASS
+
+/**
+ * The Time class takes hours and minutes from flight, turns them into seconds, calculates the elapsed time, and    
+ *
+ * @Carolyn, Suzy, Vedha
+ * @19/19/9
+ */
+public class Time
+{
+    private int hours;
+    private int minutes;
+    private int totalSeconds;
+    /** constructor for the Time class
+     * @param hours The hour of the time
+     * @param minutes The minutes of the time
+     * @param totalSeconds The total number of seconds in the time.
+     */
+    public Time (int hours, int minutes)
+    {
+        this.hours = hours;
+        this.minutes = minutes;
+        calculateTotalSeconds(hours, minutes);
+    }
+    /** gets the total number of seconds from the hours and minutes
+     * @param hours The hour of the time
+     * @param minutes The minutes of the time
+     * @return The total number of seconds in the time
+     */
+    public int calculateTotalSeconds(int hours, int minutes)
+    {
+        totalSeconds = (3600 * hours) + (60 * minutes);
+        return totalSeconds;
+    }
+    /** gets the hours and minutes from total seconds
+     * @param totalSeconds
+     * @param hours The hour of the time
+     * @param minutes The minutes of the time
+     */
+    public Time (int totalSeconds) //returns the new time
+    {
+      hours = totalSeconds/3600;
+      minutes = (totalSeconds % 3600)/60;
+      this.totalSeconds = totalSeconds;
+    }
+    /** gets the time elapsed between two times
+     * @param Time other The second time out of two times
+     * @return new time based on the number of elapsed seconds
+     */
+    public Time elapsedSeconds(Time other)
+    {
+        int elapsedSeconds = other.totalSeconds - this.totalSeconds;
+        return new Time(elapsedSeconds);
+    }
+    /** gets the new total number of seconds from the departure time and the arrival time  
+     * @param Time other The second time out of two times
+     */
+    public void addTime(Time other)
+    {
+        int newSeconds = this.totalSeconds + other.getTotalSeconds();
+        this.totalSeconds = (newSeconds % 86400);
+    }
+    /** gets the hours
+     * @param totalSeconds the total number of seconds in the time
+     * @return the number of hours in the time
+     */
+    public int getHours()
+    {
+        return totalSeconds/3600;
+    }
+    /** gets the minutes
+     * @param totalSeconds the total number of seconds in the time
+     * @return the total number of minutes from the total seconds
+     */
+    public int getMinutes()
+    {
+        return (totalSeconds % 3600)/60;
+    }
+    /** gets the total seconds
+     * @param totalSeconds the total number of seconds in the time
+     * @return the total seconds
+     */
+    public int getTotalSeconds()
+    {
+        return totalSeconds;
+    }
+    /** if the hours/minutes only goes to the 1s place, a zero is placed before it
+     * @param n the number of hours
+     * @return the hours/minutes with or without a zero  
+     */
+    private String to2Digits(int n)
+    {
+        if (n < 10)
+        {
+            return "0" + n;
+        }
+        else
+        {
+            return "" + n;
+        }
+    }
+    /** returns a string
+     * @return the new hours and minutes
+     */
+    public String toString()
+    {
+        return to2Digits(getHours()) + ":" + to2Digits(getMinutes());
+    }
+}
+
+
+
