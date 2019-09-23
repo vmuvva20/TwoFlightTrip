@@ -1,3 +1,4 @@
+
 /**
  * Write a description of class Flight here.
  *
@@ -9,8 +10,8 @@ public class Flight
     public String flightNum;
     public String depCity;
     public String arrCity;
-    public String depTime;
-    public String arrTime;
+    public Time depTime;
+    public Time arrTime;
     
     /**
      * @param flightNum     This is the flight number
@@ -20,7 +21,7 @@ public class Flight
      * @param arrTime       This is the arrival time
      */
     
-    public Flight(String flightNum, String depCity, String arrCity, String depTime, String arrTime)
+    public Flight(String flightNum, String depCity, Time depTime, String arrCity, Time arrTime)
     {
         this.flightNum = flightNum;
         this.depCity = depCity;
@@ -56,7 +57,7 @@ public class Flight
     /**
      * @return      the departure time
      */
-    public String getDepTime()
+    public Time getDepTime()
     {
         return depTime;
     }
@@ -64,9 +65,9 @@ public class Flight
     /**
      * @return      the arrival time
      */
-    public String getArrTime()
+    public Time getArrTime()
     {
-       return arrTime;
+        return arrTime;
     }
     
     /**
@@ -76,7 +77,8 @@ public class Flight
      */
     public String toString()
     {
-        return ("flight no: " + flightNum + " from " + depCity + " at " + depTime + "/n" + "arrive in " + arrCity + " at " + arrTime + ".");
+        return ("Flight" + flightNum + "   Depart " + depCity + " " + depTime + "   Arrive " + arrCity + " " 
+        + arrTime + "   Flight time ");
     }
-    
+    //NEED TO FIGURE OUT HOW TO DO ELAPSED TIME
 }
